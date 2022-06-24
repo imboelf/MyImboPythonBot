@@ -10,28 +10,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\a.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\data\0_Баранина_и_дичь.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\0_Р‘Р°СЂР°РЅРёРЅР°_Рё_РґРёС‡СЊ.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\names.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
