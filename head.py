@@ -1,5 +1,4 @@
 import csv
-
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -66,19 +65,38 @@ for category_name, category_href in all_categories.items():
         fats = table_head[3].text
         carbonhydrates = table_head[4].text
 
-
-        with open(f"data/{count}_{category_name}.csv", "w", encoding="utf-8-sig") as file:
-            writer = csv.writer(file, delimiter=";")
+        with open(f"data/{count}_{category_name}.csv", "w", encoding="UTF-8") as file:
+            writer = csv.writer(file, delimiter=';', lineterminator="\r")
             writer.writerow(
-                    {
+                {
                     products,
                     calories,
                     proteins,
                     fats,
                     carbonhydrates
-
                 }
             )
+        products_data = soup.find(class_="mzr-tc-group-table").find("tbody").find_all("tr")
 
+        for item in products_data:
+            product_tds = item.find_all("td")
+
+            title = product_tds[0].find("a").text
+            calories = product_tds[1].text
+            proteins = product_tds[2].text
+            fats = product_tds[3].text
+            carbonhydrates = product_tds[4].text
+
+            with open(f"data/{count}_{category_name}.csv", "a", encoding="UTF-8") as file:
+                writer = csv.writer(file, delimiter=';', lineterminator="\r")
+                writer.writerow(
+                    {
+                        title,
+                        calories,
+                        proteins,
+                        fats,
+                        carbonhydrates
+                    }
+                )
 
         count += 1
